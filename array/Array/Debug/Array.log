@@ -1,0 +1,3 @@
+﻿  Array.c
+D:\C\array\Array\Array.c(21,47): warning C4013: “dot_vec”未定义；假设外部返回 int
+  Array.vcxproj -> D:\C\array\Array\Debug\Array.exe
