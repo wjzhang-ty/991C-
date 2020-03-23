@@ -6,6 +6,7 @@
 
 int main()
 {
+    // 数组名：arrint  数组名是一个常量
     int arrint[50] = {1,2,3,4}; // 未初始化的均为0
     int copyarr[50];
     int arr2[][4] = { {1,2,3},{5,6,7,8} }; // 可以不声明行，但必须有列
@@ -15,6 +16,7 @@ int main()
     char format[32];
 
     printf("arrint[49]: %d\n", arrint[49]);
+    printf("数组名表示数组首个元素的地址: %p\n", arrint);
     printf("arrint中元素数量: %d\n", sizeof(arrint) / sizeof(arrint[0]));
     memcpy(copyarr, arrint, sizeof(arrint));    // 数组复制
     printf("copyar[2]r: %d\n", copyarr[2]);
