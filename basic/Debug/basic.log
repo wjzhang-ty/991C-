@@ -1,8 +1,0 @@
-﻿  main.c
-D:\C\basic\main.c(38,9): warning C4477: “printf”: 格式字符串“%d”需要类型“int”的参数，但可变参数 1 拥有了类型“__int64”
-D:\C\basic\main.c(38,9): message : 请考虑在格式字符串中使用“%lld”
-D:\C\basic\main.c(38,9): message : 请考虑在格式字符串中使用“%I64d”
-D:\C\basic\main.c(14,1): warning C4244: “初始化”: 从“double”转换到“const int”，可能丢失数据
-D:\C\basic\main.c(23,1): warning C4305: “初始化”: 从“int”到“char”截断
-D:\C\basic\main.c(26,1): warning C4305: “初始化”: 从“double”到“float”截断
-  basic.vcxproj -> D:\C\basic\Debug\basic.exe
