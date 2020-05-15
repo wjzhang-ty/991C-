@@ -7,7 +7,6 @@
 #include <stdlib.h>
 #include <string.h>
 
-LinkList CREATELINK(int len); // 创建链表
 
 // 单链表结构
 typedef struct node {
@@ -15,16 +14,19 @@ typedef struct node {
 	struct node* next;
 }LNode, * LinkList;
 
+LinkList CREATELINK(int len); // 创建链表
+
 int main()
 {
 	CREATELINK(10);
 }
 
 LinkList CREATELINK(int len){
-	LinkList list = NULL, r, temp;
+	LinkList  r, temp, list = NULL;
 	for (int i = 1; i <= len; i++) {
 		temp = (LinkList)malloc(sizeof(LNode));
-		temp->data =i;
+		r = (LinkList)malloc(sizeof(LNode));
+		temp->data = 1;
 		temp->next = NULL;
 		if (list == NULL) {
 			list = temp;
