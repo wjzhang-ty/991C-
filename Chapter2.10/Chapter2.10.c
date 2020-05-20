@@ -1,7 +1,8 @@
 ﻿/*
-	线性链表第一个节点存贮地址为list。 p72/348
+	线性链表第一个节点存贮地址为list。
 	请写一算法把链表中数据值为d的所有节点的数据域值修改为item
 */
+#define _CRT_SECURE_NO_WARNINGS
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -14,7 +15,7 @@ typedef struct node {
 	struct node* next;
 }LNode, * LinkList;
 
-LinkList CREATELINK(int len); // 创建链表
+LinkList CREATELINK(int len); // 创建带头节点链表
 void PRINTLIST(LinkList list); // 打印
 void UPDATALIST(LinkList list); // 修改
 
@@ -23,7 +24,7 @@ char str[][4] = {{'a','b','c'},{'c'},{'d','a','t','a'}}; // ["",""]有bug
 
 int main()
 {
-  LinkList list;
+	LinkList list;
 	list = CREATELINK(10);
 	PRINTLIST(list);
 	UPDATALIST(list);
@@ -46,7 +47,7 @@ LinkList CREATELINK(int len){
 }
 
 void PRINTLIST(LinkList list){
-    while(list->next!=NULL){
+    while(list!=NULL){
         printf("%s ",list->data);
         list=list->next;
     }  
