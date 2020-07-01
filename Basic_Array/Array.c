@@ -12,6 +12,12 @@ int main()
     int arr2[][4] = { {1,2,3},{5,6,7,8} }; // 可以不声明行，但必须有列
 
     char str[] = "Hello \0word"; // 默认已\0结尾，但数组长度为12
+    char tests1[5] = { 'a','c','v','s','q' };
+    char* tests2;
+    tests2 = "assdgdafgd";
+    scanf("%s", (char *)&tests2);
+    printf("\ntests2:%s\n", tests2);
+    char tests3[5] = { "asdgg" };
     char copystr[100] = ""; // 粘贴容器空间必须足够
     char format[32];
 

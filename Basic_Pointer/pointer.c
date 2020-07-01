@@ -1,5 +1,6 @@
 ﻿/* 指针相关 */
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 
 /* 命令行参数，类似于shell脚本获取参数
@@ -10,6 +11,69 @@
 */
 int main(int argc, char* argv[])
 {
+    /* 普通变量 */
+    int z = 1;
+    z;           // 1
+    &z;          // 地址
+ // *z;          // 错误*必须配指针变量
+
+    int* pz = &z;
+ // int* pz = z; // 错误,指针变量接地址
+    pz;          // z 的地址
+    &pz;         // pz的地址
+    *pz;         // 1 （z的值）
+
+
+    /* 数组 */
+    int zarr[4] = { 1,9,5,7 };
+    zarr;        // zarr[0]的地址，（元素的地址）
+    zarr + 1;    // zarr[1]的地址，平移了一个元素
+    &zarr;       // zarr的首地址，（数组的地址）
+    &zarr + 1;   // 无意义 的地址，平移了整个数组
+    &zarr[0] + 1;// zarr[1]的地址，平移了一个元素
+    &zarr[2];    // zarr[2]的地址
+    *zarr;       // 1 (zarr[0]的值)
+    *zarr + 1;   // 2 (zarr[0]的值+1)
+ // zarr++; &zarr++; *zarr++      // 错误
+
+    int* pzarr = zarr;
+    pzarr;       // zarr[0]的地址，（元素的地址）
+    pzarr + 1;   // zarr[1]的地址，平移了一个元素
+    &pzarr;      // pzarr的地址
+    &pzarr + 1;  // 无意义地址，平移了整个数组
+    *pzarr;      // 1 (zarr[0]的值)
+    *pzarr + 1;  // 2 (zarr[0]的值+1) 
+    *pzarr++;    // 9 (zarr[1]的值)       优先级 ++ > * > +
+
+
+    /* 结构体 */
+    typedef struct node { 
+        int data;   // -> typedef struct node zs 
+    }zs, * pzs;     // -> typedef struct node *pzs
+    zs stu_zs;      // 定义了一个结构体变量（已开辟内存）
+    pzs stu_pzs;    // 定义了一个指向结构体的指针（没有开辟内存）
+
+    stu_zs.data = 1;
+
+    stu_pzs = (pzs)malloc(sizeof(zs));
+    stu_pzs->data = 10;     
+    (*stu_pzs).data = 11;   // 等价于上方写法（.优先级大于*）
+
+
+    /* 字符串和字符数组 */
+    char zcarr[10] = "123450x\089"; // \0占一位
+    char* zstr = "97x";  // 自动在末尾补\0
+
+    printf("*定义的字符串:%s", zstr);
+    zstr;            // "97x"
+    zstr++;          // "7x"
+    zstr--;          // "97x"
+    *zstr;           // '9'
+    *zstr++;         // '7'
+    zstr;
+    zcarr;
+
+
     // 指针本身是一个变量
     int i = 2, i1 = 2, istr;
     int* p, * parr1, * parr2, * pstr;
