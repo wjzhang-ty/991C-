@@ -12,9 +12,10 @@ int main() {	// 函数头
 		类型 变量 = 常量;	
 	*/
 	const int i = 2147483647.9;	// const 不可更改变量，向下取整
-	int  x, y;
+	int  x, y=1;
 	unsigned short s = 100;		// 负数的取值范围叠加到正数范围，不能为负
 	long long ll = 9223372036854775807;		
+
 
 	/*
 		C中没有字符串类型，字符串由Char数组构成
@@ -32,6 +33,14 @@ int main() {	// 函数头
 		当第4项=10时  第5项由11开始递增	
 	*/
 	enum testEnum {t1, t2, t3, t4=10, t5, t6};
+
+	c + 1;
+	y + c;
+	y + s;
+	c + ll;
+	d + ll;
+
+
 
 	printf("Unsigned short  %%u:\t %u\n", s);
 	printf("Long Long       %%lld:\t %lld\n",ll);

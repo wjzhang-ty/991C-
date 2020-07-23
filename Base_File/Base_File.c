@@ -16,7 +16,7 @@ void Readfile(char path[]) {
     FILE* fp;
     fp = fopen(path, "r");
     if (fp != NULL) {
-        // fgetc(fp)==EOF 也认为是结束
+        // fgetc(fp)==EOF 也认为是结束,EOF是char类型 
         while (!feof(fp))
             printf("%c", fgetc(fp));    // 一次读取一个字符
     }
@@ -87,8 +87,46 @@ void Printfile(char path[]) {
     if (fp != NULL) {
         fprintf(fp, "%d %s %c", num+1, name, gender);
         rewind(fp); // 指向开头
+        fseek(fp, 1L, 1); // 指针指向当前位置并向后移1位，详细看readme
         fscanf(fp, "%d %s %c", &num, name, &gender);
         printf("%d\n%s\n%c\n", num, name, gender);
+    }
+    else printf("fail to open! \n");
+    fclose(fp);
+}
+
+struct node
+{
+    char name[20];
+    int age;
+};
+
+/*
+    二进制文件
+    wb+: 可读写二进制文件，删除新建
+    fwrite(*buffer,size,count,FILE); 写入（缓存，字节，多少个，fp）
+    fread(*buffer,size,count,FILE);  读取（缓存，字节，多少个，fp）
+*/
+void Bfile(char path[]) {
+    FILE* fp;
+    struct node student[20] = { {"wjzhang", 24}, {"dagege",20} };
+    fp = fopen(path, "wb+");
+    if (fp != NULL) {
+        fwrite(&student[0], sizeof(struct node), 1, fp);
+        fwrite(&student[1], sizeof(struct node), 1, fp);
+
+        student[0].age = 0;
+        student[1].age = 0;
+
+        printf("%s %d\n", student[0].name, student[0].age);
+        printf("%s %d\n", student[1].name, student[1].age);
+
+        rewind(fp);
+        // 读两个struct node存到student里
+        fread(student, sizeof(struct node), 2, fp); 
+
+        printf("%s %d\n", student[0].name, student[0].age);
+        printf("%s %d\n", student[1].name, student[1].age);
     }
     else printf("fail to open! \n");
     fclose(fp);
@@ -100,8 +138,8 @@ int main()
     //Readfile(".\\write1.txt");
     //Appendfile(".\\write1.txt");
     //Getsfile(".\\write1.txt");
-    Printfile(".\\write2.txt");
+    //Printfile(".\\write2.txt");
     //Readfile(".\\write2.txt");
-
+    Bfile(".\\bfile.txt");
     return 0;
 }

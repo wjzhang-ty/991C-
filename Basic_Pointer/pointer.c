@@ -1,4 +1,7 @@
-﻿/* 指针相关 */
+﻿#define _CRT_SECURE_NO_WARNINGS
+#define _CRT_SECURE_NO_DEPRECATE
+
+/* 指针相关 */
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -66,6 +69,7 @@ int main(int argc, char* argv[])
 
     printf("*定义的字符串:%s", zstr);
     zstr;            // "97x"
+    zstr[2];
     zstr++;          // "7x"
     zstr--;          // "97x"
     *zstr;           // '9'

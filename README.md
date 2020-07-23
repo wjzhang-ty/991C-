@@ -26,25 +26,44 @@
 > 结构、联合
 * struct：一揽子成员全都在，sizeof等于成员之和
 * union： 一揽子成员只能选一个，sizeof等于最大的成员
+* typedef: 创建新的类型（别名）
+``` c
+struct student{}b;
+struct student name; // b和name一个意思，都是定义的结构体变量
+
+typedef int INTEGER;
+INTEGER a; int b; // a、b一个意思
+
+typedef struct student{ int a } Simple;
+Simple name;  // 这里的Simple 是 struct student的别名
+```
 
 > 预处理
-* #define: 替换字符串，不预先计算
+* #define: 
+    * 替换为字符串，带参数的可以替换为参数本身的类型，不预先计算。
+    * 宏还可以携带参数
+    * 别加封号
 * typedef: 先计算完再替换
 ``` c
 #define int* INT_DEF
 typedef int* INT_TYPE
 INT_DEF d1, d2;  // -> int* d1, d2
 INT_TYPE t1, t2; // -> int* t1, *t2
+
+
+#define MAX(a,b) (a>b)?a:b
+max = MAX(1,2);
 ```
 
 > 字符串和字符数组
 * 世上本没有字符串，给字符数组加个\0便成了串（必须以\0结尾才叫字符串）
 * ***注意：***""串会在末尾加\0，长度+1
 * 字符数组和数组一样，本来定义完了也就是个指向首地址的指针
+* 数组的[]中可以使用变量，但是定义的时候**不可以**使用变量
 ``` c
 char* str = "one stack string";
 str++;  // 左侧第一个字符出队，变量是串："ne stack string"
-*str++; // 左侧第一个字符出队，指针式字符：'e'
+*str++; // 左侧第一个字符出队，指针式字符：'e'  （++优先级高）
 while(*str!='\0'){*str++;}   // 遍历字符串
 ```
 
@@ -54,6 +73,15 @@ while(*str!='\0'){*str++;}   // 遍历字符串
 * a： 末尾追加，找不到报错
 * +： 可读写，其余字母继承上方特征（例w+：可读写，删了文件再新建空文件）
 * b： 二进制文件，其余字母继承上方特征（例：rb：只读二进制文件）
+* fseek：随机读写
+    * fseek(fp,100L,0): 指向开头，向后移100.
+    * fseek(fp,100L,1)：指向不变，向后移100.
+    * fseek(fp,-100L,2):指向结尾，向前移100.
+* ferror(fp);错误检测。每次没见操作都会有一次返回值，返回1时出错，并且错误标志长期保留不会重置
+* clearerr(fp);重置错误，清除错误标志，方便下次检测
+
+>常考问题要点
+* 求素数（仅能被1和自身整除的数）：可以减少循环范围k=(int)sqrt((double)m)
 
 
 
