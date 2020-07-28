@@ -73,6 +73,8 @@ int main(int argc, char* argv[])
     zstr++;          // "7x"
     zstr--;          // "97x"
     *zstr;           // '9'
+    *(zstr++);
+    *(++zstr);
     *zstr++;         // '7'
     zstr;
     zcarr;

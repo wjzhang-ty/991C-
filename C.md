@@ -21,7 +21,8 @@ double ceil(double)|结果|向上取整
 double floor(double)|结果|向下取整
 double sqrt(double)|结果|开根
 double pow(double x, double n)|结果|x的n次方
-int abs(int)|结果|绝对值
+double exp(double x)|结果|e的x次幂
+int abs(int)|结果|绝对值!!注意参数和返回值均为int
 
 <br/>
 
