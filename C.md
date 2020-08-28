@@ -8,8 +8,8 @@ int isupper(int)|0假,非0真|判断是否为大写字母
 int islower(int)|0假,非0真|判断是否为小写字母
 int isalpha(int)|0假,非0真|判断是否为字母
 int isdigit(int)|0假,非0真|判断是否为数字
-int toupper(int)|0失败,1成功|转为大写字母
-int tolower(int)|0失败,1成功|转为小写字母
+int toupper(int)|大写字符|转为大写字母，不会改变原值
+int tolower(int)|小写字符|转为小写字母
 
 <br/>
 
@@ -57,7 +57,7 @@ void exit(int state)|无|程序终止执行，返回调用过程，state为0正�
 char gets(char* buf)|-|终端中接受字符串，\n结束，多余部分无视，末尾自动补0。（可以接受空格）。失败返回NULL
 getchar()|-|终端中接受一个字符，\n结束（可自定义），多余部分无视。
 char* fgets(char* buf, int size, FILE* fp)|-|文件中接受一行字符，\n结束，末尾自动补0
-scanf()|-|终端中接受多个字符串，回车、空格、tab都认为结束（可以自定）
+scanf()|-|终端中接受多个字符串，回车、空格、tab都认为结束（可以自定）！！当输入%c时，分隔符（空格 回车等）会被丢入缓存，并被随后的getchar scanf函数当作输入参数接受
 puts(char* s)|-|输出字符串，\0结束追加换行
 putchar(char s)|-|输出单个字符，只能输出单引号的值或者数字ASCII码
 FILE fopen(char filename, *type)|FILE|打开文件
