@@ -65,6 +65,7 @@ int fclose(FILE *stream)|-|关闭文件
 size_t fwrite ( const void * ptr, size_t size, size_t nmemb, FILE * stream )|写入文件个数|写入（缓存，字节，多少个，fp）
 size_t fread ( void * ptr, size_t size, size_t nmemb, FILE * stream )|读取文件个数|读取（缓存，字节，多少个，fp）
 int fseek(FILE *stream, long int offset, int whence)|成功会回0|移动指针，看README
+void rewind(FILE *stream)|-|移动指针至文件头部
 int fprintf(FILE stream, char format[], argument,...)|转化的字节数，失败负数|格式化写入，格式同printf
 int fscanf(FILE stream, char format[],argument...)|转化的字节数，失败负数|格式化读取，格式同scanf
 int feof(FILE * stream)|返回非零值代表已到达文件尾|检查文件流是否读到了文件尾

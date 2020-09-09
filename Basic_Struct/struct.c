@@ -32,9 +32,9 @@ union data {
 	char* name;
 	double salary;
 }union1 = { 1 }; // 联合体仅能存放成员变量中的一个
-
 int main()
 {
+
 	Stu stu3 = { "wjzhang","math",1,{1} };	 // 定义变量方法二
 	Stu stu4 = { "zzh" }; // 未赋值的成员，int类型为0，数组中8个0，char类型为NULL
 	printf("struct类型的数据长度等于其成员变量的长度总和：%d\n", sizeof(stu3));

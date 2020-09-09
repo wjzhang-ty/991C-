@@ -25,8 +25,17 @@
 > 答题要点
 * 初始化的变量未赋值时
     * 可以赋值运算
-    * 不能做判断
+    * 不能做判断print
     * 如果初值为NULL判断时NULL会被解析成0，考虑到个人思路的特点，不要碰这个。
+* printf的计算方式是从右到左，输出值是全部计算完成后的值。下面例子
+* printf中使用%s只能用空格做分隔符
+``` c
+int i
+i=1;
+printf("%d,%d",i++,++i); // 2,3
+i=1;
+printf("%d,%d",++i,i++); // 3,1
+```
 
 > 无聊的东西
 * k=... 的返回值为k的值。例：if(k=0) A; else B; 执行语句B
@@ -106,8 +115,7 @@ typedef struct student{ int a } Simple;
 Simple name;  // 这里的Simple 是 struct student的别名
 ```
 
-> 预处理
-* #开头的都是，#include也是
+> 预处理（#开头的都是，#include也是）
 * #define: 
     * 不预先计算
     * 宏可以携带参数,带参数的可以替换为参数本身的类型
@@ -117,6 +125,9 @@ Simple name;  // 这里的Simple 是 struct student的别名
     * <>：直接从系统中查找标准头文件
     * ""：先从当前目录查找是否有指定名称头文件，再从系统中查找
 * typedef: 先计算完再替换（！这个不属于预处理命令）
+* enum：枚举（穷尽所有可能的别称）
+    * 默认为0，逐个递增1
+    * 可以用枚举赋值不可以用常量赋值。可以强制转换但无意义
 ``` c
 #define int* INT_DEF
 typedef int* INT_TYPE
@@ -126,6 +137,10 @@ INT_TYPE t1, t2; // -> int* t1, *t2
 
 #define MAX(a,b) (a>b)?a:b
 max = MAX(1,2);
+
+enum season {spring, summer=3, autumn, winter}day1;
+enum season day2 = spring;  // 赋值
+day1 = ( enum season ) 0    // 强制转换赋值
 ```
 
 > 字符串和字符数组
@@ -153,9 +168,9 @@ while(*str!='\0'){*str++;}   // 遍历字符串
 * 静态全局变量：static 全局变量; 静态存储，作用域仅当前文件中有效
 
 > 文件
-* r： 为了读，找不到报错
-* w： 为了写，删了再新建空文件
-* a： 末尾追加，找不到报错
+* r： 只读，找不到报错
+* w： 只写，删了再新建空文件
+* a： 只写，末尾追加，找不到报错
 * +： 可读写，其余字母继承上方特征（例w+：可读写，删了文件再新建空文件）
 * b： 二进制文件，其余字母继承上方特征（例：rb：只读二进制文件）
 * fseek：随机读写

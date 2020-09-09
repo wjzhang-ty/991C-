@@ -66,7 +66,9 @@ int Appendfile(char path[]) {
     FILE* fp;
     fp = fopen(path, "a");
     if (fp != NULL) {
-        fputs("\n原地追加一个字符串", fp);
+        printf("%c", fgetc(fp));
+        fputs("\n原地追加一个字符串11", fp);
+        printf("%c", fgetc(fp));
     }
     else printf("fail to open! \n");
     fclose(fp);
@@ -136,10 +138,10 @@ int main()
 {
     //Writefile(".\\write1.txt");
     //Readfile(".\\write1.txt");
-    //Appendfile(".\\write1.txt");
+    Appendfile(".\\write1.txt");
     //Getsfile(".\\write1.txt");
     //Printfile(".\\write2.txt");
     //Readfile(".\\write2.txt");
-    Bfile(".\\bfile.txt");
+    //Bfile(".\\bfile.txt");
     return 0;
 }
