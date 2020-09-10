@@ -43,9 +43,9 @@ char *strstr(char *s1,char *s2)|返回找到的字符串的地址，找不到返
 
 内置函数|返回值|说明
 -|-|-
-void *calloc(unsigned n,unsigned size)|分配内存单元的起始地址；如不成功，返回0|分配n个数据项的内存空间，每个数据项的大小为size个字节
+void *calloc(unsigned n,unsigned size)|分配内存单元的起始地址；如不成功，返回0|分配n个数据项的内存空间，每个数据项的大小为size个字节，并初始化为0
 void *free(void *p)|无|释放p所指的内存区
-void *malloc(unsigned size)|分配内存空间的地址；如不成功，返回0|分配size个字节的存储空间
+void *malloc(unsigned size)|分配内存空间的地址；如不成功，返回0|分配size个字节的存储空间，不初始化
 void *realloc(void *p,unsigned size)|新分配内存空间的地址；如不成功，返回0|把p所指内存区的大小改为size个字节
 int rand(void)|返回一个随机整数|产生0～32767的随机整数
 void exit(int state)|无|程序终止执行，返回调用过程，state为0正常终止，非0非正常终止
