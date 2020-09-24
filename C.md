@@ -38,6 +38,12 @@ int strcmp(char *s1,char *s2)|s1<s2,返回负数；s1= =s2,返回0；s1>s2,返�
 char *strcpy(char *s1,char *s2)|s1 所指地址|将s1替换为s2
 unsigned strlen(char *s)|返回串中字符（不计最后的'\0'）个数|求字符串s的长度
 char *strstr(char *s1,char *s2)|返回找到的字符串的地址，找不到返回NULL|在s1所指字符串中，找出字符串s2第一次出现的位置
+``` c
+    char str1[] = "abcdef";
+    char str2[] = "ab\0cd\0ef";
+	printf("sizeof:str1 %ld  str2 %ld\n",sizeof(str1),sizeof(str2)); // 7 9
+	printf("strlen:str1 %ld  str2 %ld\n",strlen(str1),strlen(str2)); // 6 2
+```
 
 >头文件：stdlib.h
 
